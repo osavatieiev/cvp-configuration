@@ -35,7 +35,7 @@ tempest_configuration () {
   # default tempest version is 17.2.0 now, unless
   # it is explicitly defined in pipelines
   #if [ "$tempest_version" == "" ]; then
-  tempest_version='17.2.0'
+  tempest_version='17.2.1'
   #fi
   if [ "$PROXY" == "offline" ]; then
     rally verify create-verifier --name tempest_verifier_$sub_name --type tempest --source $TEMPEST_REPO --system-wide --version $tempest_version
@@ -47,7 +47,7 @@ tempest_configuration () {
     fi
     rally verify create-verifier --name tempest_verifier_$sub_name --type tempest --source $TEMPEST_REPO --version $tempest_version
 #    rally verify add-verifier-ext --source https://github.com/openstack/telemetry-tempest-plugin
-    rally verify add-verifier-ext --version 12b770e923060f5ef41358c37390a25be56634f0 --source https://github.com/openstack/heat-tempest-plugin
+#    rally verify add-verifier-ext --version 12b770e923060f5ef41358c37390a25be56634f0 --source https://github.com/openstack/heat-tempest-plugin
     pip install --force-reinstall python-cinderclient==3.2.0
     unset https_proxy
   fi
