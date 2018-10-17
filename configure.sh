@@ -34,9 +34,9 @@ tempest_configuration () {
   sub_name=`date "+%H_%M_%S"`
   # default tempest version is 17.2.0 now, unless
   # it is explicitly defined in pipelines
-  if [ "$tempest_version" == "" ]; then
-      tempest_version='17.2.0'
-  fi
+  #if [ "$tempest_version" == "" ]; then
+  tempest_version='17.2.1'
+  #fi
   if [ "$PROXY" == "offline" ]; then
     rally verify create-verifier --name tempest_verifier_$sub_name --type tempest --source $TEMPEST_REPO --system-wide --version $tempest_version
     rally verify add-verifier-ext --source /var/lib/telemetry-tempest-plugin
